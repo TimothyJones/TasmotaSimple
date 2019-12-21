@@ -22,8 +22,14 @@ const SettingsButton = styled.a`
   border: 2px grey;
   display: block;
   text-align: center;
+  color: #000;
   text-decoration: none;
   width: 100%;
+
+  &:visited {
+    text-decoration: none;
+    color: #000;
+  }
 `;
 
 const ToggleButton = ({ host, displayName }) => {
