@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "37828d91da13d33d3aeb78aad8b7654d",
+    "revision": "559cb25c95c5972e96bb532a55e98d7f",
     "url": "/TasmotaSimple/index.html"
   },
   {
-    "revision": "f51105ebec0a4fcefa03",
+    "revision": "b464439120b03a4644da",
     "url": "/TasmotaSimple/static/css/main.d061d778.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TasmotaSimple/static/js/2.63a602a6.chunk.js.LICENSE"
   },
   {
-    "revision": "f51105ebec0a4fcefa03",
-    "url": "/TasmotaSimple/static/js/main.5a1d4f07.chunk.js"
+    "revision": "b464439120b03a4644da",
+    "url": "/TasmotaSimple/static/js/main.90a10bd4.chunk.js"
   },
   {
     "revision": "0f076ae5cf92667d4577",
