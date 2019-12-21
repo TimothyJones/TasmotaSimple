@@ -7,11 +7,22 @@ const Button = styled.button`
   border-radius: 3px;
   border: 2px solid ${({ isOn }) => (isOn ? 'green' : 'black')};
   color: #fff;
-  margin: 1em;
   padding: 0.25em 1em;
   font-size: 1.2em;
   display: block;
-  width: 90%;
+  width: 100%;
+`;
+
+const SettingsButton = styled.a`
+  background: grey;
+  border-radius: 3px;
+  padding: 0.25em 1em;
+  font-size: 1.2em;
+  border: 2px grey;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
 `;
 
 const ToggleButton = ({ host, displayName }) => {
@@ -35,16 +46,19 @@ const ToggleButton = ({ host, displayName }) => {
   }, [isOn, hasLoaded, setIsOn, setHasLoaded]);
 
   return (
-    <Button
-      isOn={isOn}
-      hasLoaded={hasLoaded}
-      onClick={() => {
-        setIsOn(!isOn); // Assume it worked so the UI feels more responsive
-        device.toggle().then(wasItOn => setIsOn(wasItOn));
-      }}
-    >
-      {hasLoaded ? displayName : 'loading'}
-    </Button>
+    <>
+      <Button
+        isOn={isOn}
+        hasLoaded={hasLoaded}
+        onClick={() => {
+          setIsOn(!isOn); // Assume it worked so the UI feels more responsive
+          device.toggle().then(wasItOn => setIsOn(wasItOn));
+        }}
+      >
+        {hasLoaded ? displayName : 'loading'}
+      </Button>
+      <SettingsButton href={`http://${host}`}>⚙️</SettingsButton>
+    </>
   );
 };
 
