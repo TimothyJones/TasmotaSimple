@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/TasmotaSimple/static/css/main.d061d778.chunk.css",
-    "main.js": "/TasmotaSimple/static/js/main.fd2afdd2.chunk.js",
-    "main.js.map": "/TasmotaSimple/static/js/main.fd2afdd2.chunk.js.map",
+    "main.js": "/TasmotaSimple/static/js/main.5a1d4f07.chunk.js",
+    "main.js.map": "/TasmotaSimple/static/js/main.5a1d4f07.chunk.js.map",
     "runtime-main.js": "/TasmotaSimple/static/js/runtime-main.e68d3e44.js",
     "runtime-main.js.map": "/TasmotaSimple/static/js/runtime-main.e68d3e44.js.map",
     "static/js/2.63a602a6.chunk.js": "/TasmotaSimple/static/js/2.63a602a6.chunk.js",
     "static/js/2.63a602a6.chunk.js.map": "/TasmotaSimple/static/js/2.63a602a6.chunk.js.map",
     "index.html": "/TasmotaSimple/index.html",
-    "precache-manifest.b9d5d1bbbbf61e58b1b96bb31c782611.js": "/TasmotaSimple/precache-manifest.b9d5d1bbbbf61e58b1b96bb31c782611.js",
+    "precache-manifest.b70d3893346525f5a90a4ad75155310b.js": "/TasmotaSimple/precache-manifest.b70d3893346525f5a90a4ad75155310b.js",
     "service-worker.js": "/TasmotaSimple/service-worker.js",
     "static/css/main.d061d778.chunk.css.map": "/TasmotaSimple/static/css/main.d061d778.chunk.css.map",
     "static/js/2.63a602a6.chunk.js.LICENSE": "/TasmotaSimple/static/js/2.63a602a6.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.e68d3e44.js",
     "static/js/2.63a602a6.chunk.js",
     "static/css/main.d061d778.chunk.css",
-    "static/js/main.fd2afdd2.chunk.js"
+    "static/js/main.5a1d4f07.chunk.js"
   ]
 }
