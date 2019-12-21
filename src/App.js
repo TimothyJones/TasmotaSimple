@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { devices, app } from './config';
+
+import ToggleButton from './ToggleButton';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-Header">{app.title}</header>
+      {devices.map(({ displayName, host }) => (
+        <ToggleButton displayName={displayName} host={host} key={host} />
+      ))}
     </div>
   );
 }
