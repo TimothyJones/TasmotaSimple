@@ -38,7 +38,10 @@ const ToggleButton = ({ host, displayName }) => {
     <Button
       isOn={isOn}
       hasLoaded={hasLoaded}
-      onClick={() => device.toggle().then(wasItOn => setIsOn(wasItOn))}
+      onClick={() => {
+        setIsOn(!isOn); // Assume it worked so the UI feels more responsive
+        device.toggle().then(wasItOn => setIsOn(wasItOn));
+      }}
     >
       {hasLoaded ? displayName : 'loading'}
     </Button>
