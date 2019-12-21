@@ -30,17 +30,17 @@ const ToggleButton = ({ host, displayName }) => {
   const [isOn, setIsOn] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
 
-  const device = api(host);
-
   useEffect(() => {
     let cancel = false;
     const poll = () =>
-      device.isPowerOn().then(wasItOn => {
-        if (!cancel) {
-          setIsOn(wasItOn);
-          setHasLoaded(true);
-        }
-      });
+      api(host)
+        .isPowerOn()
+        .then(wasItOn => {
+          if (!cancel) {
+            setIsOn(wasItOn);
+            setHasLoaded(true);
+          }
+        });
     poll();
 
     const repoll = setInterval(poll, app.pollIntervalMillis);
@@ -48,8 +48,9 @@ const ToggleButton = ({ host, displayName }) => {
       cancel = true;
       clearTimeout(repoll);
     };
-  }, [isOn, hasLoaded, setIsOn, setHasLoaded]);
+  }, [isOn, hasLoaded, setIsOn, setHasLoaded, host]);
 
+  const device = api(host);
   return (
     <>
       <Button
