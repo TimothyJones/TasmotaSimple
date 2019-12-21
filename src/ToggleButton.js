@@ -70,7 +70,7 @@ const ToggleButton = ({ host, displayName }) => {
         {hasLoaded ? displayName : 'loading'}
       </Button>
       <SettingsButton href={`http://${host}`}>
-        <span role="img" aria-label="House With Garden">
+        <span role="img" aria-label="Gear">
           ⚙️
         </span>
       </SettingsButton>
