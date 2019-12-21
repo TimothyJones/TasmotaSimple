@@ -34,15 +34,14 @@ const ToggleButton = ({ host, displayName }) => {
     };
   }, [isOn, hasLoaded, setIsOn, setHasLoaded]);
 
-  return hasLoaded ? (
+  return (
     <Button
       isOn={isOn}
+      hasLoaded={hasLoaded}
       onClick={() => device.toggle().then(wasItOn => setIsOn(wasItOn))}
     >
-      {displayName}
+      {hasLoaded ? displayName : 'loading'}
     </Button>
-  ) : (
-    'loading'
   );
 };
 
