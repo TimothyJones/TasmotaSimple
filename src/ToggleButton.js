@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from './api';
 import styled from 'styled-components';
+import { app } from './config';
 
 const Button = styled.button`
   background: ${({ isOn }) => (isOn ? 'green' : 'black')};
@@ -33,15 +34,19 @@ const ToggleButton = ({ host, displayName }) => {
 
   useEffect(() => {
     let cancel = false;
-    device.isPowerOn().then(wasItOn => {
-      if (!cancel) {
-        setIsOn(wasItOn);
-        setHasLoaded(true);
-      }
-    });
+    const poll = () =>
+      device.isPowerOn().then(wasItOn => {
+        if (!cancel) {
+          setIsOn(wasItOn);
+          setHasLoaded(true);
+        }
+      });
+    poll();
 
+    const repoll = setInterval(poll, app.pollIntervalMillis);
     return () => {
       cancel = true;
+      clearTimeout(repoll);
     };
   }, [isOn, hasLoaded, setIsOn, setHasLoaded]);
 

@@ -7,5 +7,6 @@ export const devices = [
 ];
 
 export const app = {
-  title: 'Jones Family House'
+  title: 'Jones Family House',
+  pollIntervalMillis: 30000
 };
