@@ -1,5 +1,7 @@
 The project generates a single web page providing toggle control and monitoring of multiple tasmota devices
+
 Device configuration is provided by editing file config.js
+
 Tasmota devices must have CORS enabled for this project to function
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
