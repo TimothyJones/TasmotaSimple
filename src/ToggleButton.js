@@ -67,7 +67,7 @@ const ToggleButton = ({ host, displayName }) => {
           device.toggle().then(wasItOn => setIsOn(wasItOn));
         }}
       >
-        {hasLoaded ? displayName : 'loading'}
+      {hasLoaded ? displayName : displayName + ':loading'}
       </Button>
       <SettingsButton href={`http://${host}`}>
         <span role="img" aria-label="House With Garden">
