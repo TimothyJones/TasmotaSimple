@@ -19,7 +19,7 @@ const apiGet = (hostAndPort, command) =>
     }
   });
 
-const getPowerState = ({ POWER }) => POWER === 'ON';
+const getPowerState = ({ POWER, POWER1 }) => POWER === 'ON' || POWER1 === 'ON';
 
 export default hostAndPort => ({
   toggle: cmd => apiGet(hostAndPort, 'POWER TOGGLE').then(getPowerState),
