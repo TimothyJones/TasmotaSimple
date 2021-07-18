@@ -11,7 +11,7 @@ const fetchWith = (url, options) =>
     };
   });
 
-const apiGet = (hostAndPort, command) =>
+const apiCommand = (hostAndPort, command) =>
   fetchWith(`http://${hostAndPort}/cm?cmnd=${command}`, {
     method: 'GET',
     headers: {
@@ -26,11 +26,12 @@ const getPowerState = (response, powerId) =>
 
 export default (hostAndPort, powerId = 1) => ({
   toggle: () =>
-    apiGet(hostAndPort, `${marshalPowerId(powerId)} TOGGLE`).then(response =>
-      getPowerState(response, powerId)
-    ),
+    apiCommand(
+      hostAndPort,
+      `${marshalPowerId(powerId)} TOGGLE`
+    ).then(response => getPowerState(response, powerId)),
   isPowerOn: () =>
-    apiGet(hostAndPort, 'Status 11').then(({ StatusSTS }) =>
+    apiCommand(hostAndPort, 'Status 11').then(({ StatusSTS }) =>
       getPowerState(StatusSTS, powerId)
     )
 });
