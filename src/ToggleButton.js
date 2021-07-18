@@ -32,14 +32,14 @@ const SettingsButton = styled.a`
   }
 `;
 
-const ToggleButton = ({ host, displayName }) => {
+const ToggleButton = ({ host, displayName, powerId }) => {
   const [isOn, setIsOn] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
     let cancel = false;
     const poll = () =>
-      api(host)
+      api(host, powerId)
         .isPowerOn()
         .then(wasItOn => {
           if (!cancel) {
@@ -54,9 +54,9 @@ const ToggleButton = ({ host, displayName }) => {
       cancel = true;
       clearTimeout(repoll);
     };
-  }, [isOn, hasLoaded, setIsOn, setHasLoaded, host]);
+  }, [isOn, hasLoaded, setIsOn, setHasLoaded, host, powerId]);
 
-  const device = api(host);
+  const device = api(host, powerId);
   return (
     <>
       <Button
@@ -67,7 +67,7 @@ const ToggleButton = ({ host, displayName }) => {
           device.toggle().then(wasItOn => setIsOn(wasItOn));
         }}
       >
-      {hasLoaded ? displayName : displayName + ':Offline'}
+        {hasLoaded ? displayName : displayName + ':Offline'}
       </Button>
       <SettingsButton href={`http://${host}`}>
         <span role="img" aria-label="Gear">

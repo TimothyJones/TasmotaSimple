@@ -19,9 +19,18 @@ const apiGet = (hostAndPort, command) =>
     }
   });
 
-const getPowerState = ({ POWER, POWER1 }) => POWER === 'ON' || POWER1 === 'ON';
+const marshalPowerId = powerId => `POWER${powerId}`;
 
-export default hostAndPort => ({
-  toggle: cmd => apiGet(hostAndPort, 'POWER TOGGLE').then(getPowerState),
-  isPowerOn: cmd => apiGet(hostAndPort, 'Power').then(getPowerState)
+const getPowerState = (response, powerId) =>
+  response.POWER === 'ON' || response[marshalPowerId(powerId)] === 'ON';
+
+export default (hostAndPort, powerId = 1) => ({
+  toggle: () =>
+    apiGet(hostAndPort, `${marshalPowerId(powerId)} TOGGLE`).then(response =>
+      getPowerState(response, powerId)
+    ),
+  isPowerOn: () =>
+    apiGet(hostAndPort, marshalPowerId(powerId)).then(response =>
+      getPowerState(response, powerId)
+    )
 });

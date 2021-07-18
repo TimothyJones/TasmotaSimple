@@ -17,8 +17,13 @@ function App() {
     <div className="App">
       <header className="App-Header">{app.title}</header>
       <ButtonWrapper>
-        {devices.map(({ displayName, host }) => (
-          <ToggleButton displayName={displayName} host={host} key={host} />
+        {devices.map(({ displayName, host, powerId }) => (
+          <ToggleButton
+            displayName={displayName}
+            host={host}
+            powerId={powerId}
+            key={`${host}${powerId}`}
+          />
         ))}
       </ButtonWrapper>
     </div>

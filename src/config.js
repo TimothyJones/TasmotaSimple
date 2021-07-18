@@ -1,5 +1,8 @@
 export const devices = [
-  { displayName: 'Blanket', host: 'blanket.fritz.box' },
+  { displayName: 'Blanket', host: 'bedroom.fritz.box', powerId: 1 },
+  { displayName: 'Heat', host: 'bedroom.fritz.box', powerId: 2 },
+  { displayName: 'Cool', host: 'bedroom.fritz.box', powerId: 3 },
+  { displayName: 'Yamaha', host: 'Yamaha.fritz.box' },
   { displayName: 'Spare', host: 'spare.fritz.box' },
   { displayName: 'TV', host: 'tv.fritz.box' },
   { displayName: 'Lamp', host: 'lamp.fritz.box' },
