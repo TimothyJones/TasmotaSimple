@@ -30,7 +30,7 @@ export default (hostAndPort, powerId = 1) => ({
       getPowerState(response, powerId)
     ),
   isPowerOn: () =>
-    apiGet(hostAndPort, marshalPowerId(powerId)).then(response =>
-      getPowerState(response, powerId)
+    apiGet(hostAndPort, 'Status 11').then(({ StatusSTS }) =>
+      getPowerState(StatusSTS, powerId)
     )
 });
